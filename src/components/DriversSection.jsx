@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 import DriverCard from "./DriversCard";
 
-
 const drivers = [
     { rank: 1, name: 'Max Verstappen', points: 265, team: 'Red Bull Racing', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png' },
     { rank: 2, name: 'Lando Norris', points: 189, team: 'McLaren', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png' },
-    // Add more driver objects here
+    { rank: 3, name: 'Charles Leclerc', points: 177, team: 'Ferrari', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png' },
 ];
 
 const DriversSection = () => {
@@ -22,7 +21,7 @@ const DriversSection = () => {
                     <h2 className='text-lg font-f1bold w-44 pt-5 pb-5 pl-5 bg-gray-100 border-solid border-l-8 border-l-black shadow-md'>2024 Drivers</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ml-10 mr-10 mt-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ml-10 mr-10 mt-10">
                     {drivers.map((driver) => (
                     <DriverCard key={driver.rank} driver={driver}/>
                     ))}

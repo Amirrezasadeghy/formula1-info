@@ -7,6 +7,7 @@ import HomePage from "./screens/HomePage";
 import DriversScreen from "./screens/DriversScreen";
 import TeamsScreen from "./screens/TeamsScreen";
 import DriversDetail from "./screens/DriversDetail";
+import TracksScreen from "./screens/TracksScreen";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="DriversScreen" element={<DriversScreen />} />
         <Route path="TeamsScreen" element={<TeamsScreen />} />
+        <Route path="TracksScreen" element={<TracksScreen />} /> 
         <Route path="driver/:name" element={<DriversDetail />} /> {/* Dynamic Route */}
       </Routes>
     </BrowserRouter>

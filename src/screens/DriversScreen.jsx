@@ -4,7 +4,7 @@ import { useState } from 'react';
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-import DriverCard from "../components/DriversCard";
+import DriverCardAPI from "../components/DriversCardAPI";
 
 const drivers = [
     { rank: 1, name: 'Max Verstappen', points: 265, team: 'Red Bull Racing', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png' },
@@ -34,7 +34,7 @@ const DriversScreen = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ml-10 mr-10 mt-10">
                 {drivers.slice(0, showMore ? drivers.length : 10).map((driver) => (
-                <DriverCard key={driver.rank} driver={driver} linkTo="/DriversDetail"/>
+                <DriverCardAPI key={driver.rank} driver={driver} linkTo="/DriversDetail"/>
                 ))}
             </div>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import TracksCard from "./TracksCard";
 
@@ -11,7 +12,7 @@ const Tracks = [
 
 const TracksSection = () => {
 
-    const [showMore, setShowMore] = useState(false);
+    const navigate = useNavigate();
 
     return (
 
@@ -21,19 +22,17 @@ const TracksSection = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ml-10 mr-10 mt-10">
-                {Tracks.slice(0, showMore ? Tracks.length : 2).map((Track) => (
+                {Tracks.map((Track) => (
                 <TracksCard key={Track.rank} Track={Track}/>
                 ))}
             </div>
 
-            {!showMore && (
-                <button
-                className="absolute right-12 text-xl font-f1regular mt-4 p-2 border-r-2 border-b-2 border-r-gray-400 border-b-gray-400 rounded-br-2xl text-gray-400 hover:text-black hover:border-r-2 hover:border-b-2 hover:border-r-black hover:border-b-black"
-                onClick={() => setShowMore(true)}
+            <button
+                    className="absolute right-12 text-xl font-f1regular mt-4 p-2 border-r-2 border-b-2 border-r-gray-400 border-b-gray-400 rounded-br-2xl text-gray-400 hover:text-black hover:border-r-2 hover:border-b-2 hover:border-r-black hover:border-b-black"
+                    onClick={() => navigate('/TracksScreen')}
                 >
-                more...
-                </button>
-            )}
+                    More...
+            </button>
 
 
         </div>
