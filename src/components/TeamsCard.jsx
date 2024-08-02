@@ -2,7 +2,7 @@ import React from 'react';
 
 const TeamsCard = ({ Team }) => {
   return (
-    <div className="relative flex flex-row gap-20 items-center p-3 rounded-br-3xl border-solid border-black border-r-4 border-b-8 hover:border-r-red-600 hover:border-b-red-600">
+    <div className="relative flex flex-row gap-20 items-center p-3 rounded-br-3xl border-solid border-black border-r-4 border-b-8 hover:border-r-red-600 hover:border-b-red-600 hover:bg-gray-100">
 
       <img className="w-1/2 h-auto" src={Team.image} alt={Team.name} />
 

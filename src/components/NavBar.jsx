@@ -17,6 +17,7 @@ const NavBar = () => {
                         <Link to="/DriversScreen" className="font-f1regular text-gray-900 hover:text-red-600 pb-1 pr-4 pl-3 rounded-br-2xl border-solid border-r-4 border-b-gray-900 border-b-2 border-r-gray-900 hover:border-b-red-600 hover:border-r-red-600 active:border-r-8 active:border-b-4">Drivers</Link>
                         <Link to="/TeamsScreen" className="font-f1regular text-gray-900 hover:text-red-600 pb-1 pr-4 pl-3 rounded-br-2xl border-solid border-r-4 border-b-gray-900 border-b-2 border-r-gray-900 hover:border-b-red-600 hover:border-r-red-600 active:border-r-8 active:border-b-4">Teams</Link>
                         <Link to="/TracksScreen" className="font-f1regular text-gray-900 hover:text-red-600 pb-1 pr-4 pl-3 rounded-br-2xl border-solid border-r-4 border-b-gray-900 border-b-2 border-r-gray-900 hover:border-b-red-600 hover:border-r-red-600 active:border-r-8 active:border-b-4">Races</Link>
+                        <Link to="/HistoryScreen" className="font-f1regular text-gray-900 hover:text-red-600 pb-1 pr-4 pl-3 rounded-br-2xl border-solid border-r-4 border-b-gray-900 border-b-2 border-r-gray-900 hover:border-b-red-600 hover:border-r-red-600 active:border-r-8 active:border-b-4">History</Link>
                     </div>
                 </div>
             </div>

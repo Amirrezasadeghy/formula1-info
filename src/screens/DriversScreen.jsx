@@ -1,27 +1,47 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Circles } from 'react-loader-spinner';
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-
 import DriverCardAPI from "../components/DriversCardAPI";
-
-const drivers = [
-    { rank: 1, name: 'Max Verstappen', points: 265, team: 'Red Bull Racing', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png' },
-    { rank: 2, name: 'Lando Norris', points: 189, team: 'McLaren', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png' },
-    { rank: 3, name: 'Charles Leclerc', points: 145, team: 'Ferrari', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png' },
-    { rank: 4, name: 'Oscar Piastri', points: 89, team: 'McLaren', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OSCPIA01_Oscar_Piastri/oscpia01.png' },
-    { rank: 5, name: 'Carlos Sainz', points: 140, team: 'Ferrari', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png' },
-    { rank: 6, name: 'Lewis Hamilton', points: 167, team: 'Mercedes', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png' },
-    { rank: 7, name: 'Sergio Perez', points: 160, team: 'Red Bull Racing', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/S/SERPER01_Sergio_Perez/serper01.png' },
-    { rank: 8, name: 'George Russell', points: 132, team: 'Mercedes', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png' },
-    { rank: 9, name: 'Fernando Alonso', points: 120, team: 'Aston Martin', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png' },
-    { rank: 10, name: 'Lance Stroll', points: 82, team: 'Aston Martin', image: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png' },
-];
 
 const DriversScreen = () => {
 
-    const [showMore, setShowMore] = useState(false);
+    const [drivers, setDrivers] = useState ([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+
+        fetch('https://v1.formula-1.api-sports.io/rankings/drivers?season=2024', {
+          headers: {
+            'x-rapidapi-key': 'f7972ca67cb09d4b2ca4c1c253f9da77',
+            'x-rapidapi-host': 'v1.formula-1.api-sports.io',
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setDrivers(data.response);
+            setLoading(false); 
+          })
+          .catch((error) => {
+            console.error('Error fetching drivers:', error);
+            setLoading(false); 
+          });
+      }, []);
+    
+      if (loading) {
+        return (
+          <div className="flex justify-center items-center min-h-screen">
+            <Circles
+              height="100"
+              width="100"
+              color="#000"
+              ariaLabel="loading"
+            />
+          </div>
+        );
+      }
 
     return (
         <>
@@ -33,8 +53,8 @@ const DriversScreen = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ml-10 mr-10 mt-10">
-                {drivers.slice(0, showMore ? drivers.length : 10).map((driver) => (
-                <DriverCardAPI key={driver.rank} driver={driver} linkTo="/DriversDetail"/>
+                {drivers.map((driver) => (
+                <DriverCardAPI key={driver.position} driver={driver} linkTo="/DriversDetail"/>
                 ))}
             </div>
 

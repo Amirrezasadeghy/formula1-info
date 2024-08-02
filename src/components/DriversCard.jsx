@@ -5,7 +5,7 @@ const DriverCard = ({ driver }) => {
   return (
 
     <Link to={`/driver/${encodeURIComponent(driver.name)}`}>
-      <div className="relative flex flex-row gap-2 items-center rounded-br-3xl border-solid border-black border-r-4 border-b-8 hover:border-r-red-600 hover:border-b-red-600">
+      <div className="relative flex flex-row gap-2 items-center rounded-br-3xl border-solid border-black border-r-4 border-b-8 hover:border-r-red-600 hover:border-b-red-600 hover:bg-gray-100">
 
         <img className="w-64 h-64" src={driver.image} alt={driver.name} />
 
