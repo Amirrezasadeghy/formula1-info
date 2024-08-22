@@ -7,10 +7,10 @@ const TracksCardAPI = ({ track }) => {
 
       <div className="mt-4 text-left flex flex-col gap-3">
         <p className="text-4xl font-f1bold">{track.competition.name}</p>
-        <p className="text-xl font-f1bold">Location: {track.competition.location.country}, {track.competition.location.city}</p>
-        <p className="text-xl font-f1bold">Circuit: {track.circuit.name}</p>
-        <p className="text-xl font-f1bold">Season: {track.season}</p>
-        <p className="text-xl font-f1bold">{track.type}</p>
+        <p className="text-xl font-f1bold">{track.competition.location.country}, {track.competition.location.city}</p>
+        <p className="text-xl font-f1regular">{track.circuit.name}</p>
+        <p className="text-xl font-f1regular">Season: {track.season}</p>
+        <p className="text-xl font-f1regular">{track.type}</p>
         <p className="text-xl font-f1bold">{new Date(track.date).toLocaleDateString()}</p>
       </div>
     </div>
